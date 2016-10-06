@@ -33,7 +33,7 @@ curl -X POST -H 'Content-type: application/json' http://${SOLR_HOST}:${SOLR_PORT
 }'
 
 curl -X POST -H 'Content-type: application/json' http://${SOLR_HOST}:${SOLR_PORT}/solr/${SOLR_COLLECTION}/config -d '{
-    "create-requesthandler": {
+    "create-queryparser": {
         "name": "custom_qp_v1",
         "class": "com.github.pvasilyev.solr.plugins.CustomQParserPlugin",
         "runtimeLib": "true",
