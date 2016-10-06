@@ -1,5 +1,7 @@
 package com.github.pvasilyev.solr.plugins;
 
+import org.apache.lucene.index.Term;
+import org.apache.lucene.search.PrefixQuery;
 import org.apache.lucene.search.Query;
 import org.apache.solr.common.params.SolrParams;
 import org.apache.solr.common.util.NamedList;
@@ -34,7 +36,8 @@ public class CustomQParserPlugin extends QParserPlugin {
 
         @Override
         public Query parse() throws SyntaxError {
-            return null;
+            final Term term = new Term("clientName_s", qstr);
+            return new PrefixQuery(term);
         }
     }
 
